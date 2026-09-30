@@ -1,0 +1,2907 @@
+{
+  "id": "72aa2fa1-3feb-4aaf-8def-1df303da49e8",
+  "revision": 0,
+  "last_node_id": 339,
+  "last_link_id": 1316,
+  "nodes": [
+    {
+      "id": 118,
+      "type": "VAELoader",
+      "pos": [
+        -1000,
+        632
+      ],
+      "size": [
+        460,
+        70
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            632
+          ]
+        }
+      ],
+      "title": "Load VAE (texture)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "trellis_2_texture_vae_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Pixal3D/resolve/main/vae/trellis_2_texture_vae_bf16.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "trellis_2_texture_vae_bf16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "trellis_2_texture_vae_bf16.safetensors"
+      },
+      "color": "#f66744",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 15,
+      "type": "CLIPVisionLoader",
+      "pos": [
+        -1000,
+        354
+      ],
+      "size": [
+        460,
+        80
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP_VISION",
+          "type": "CLIP_VISION",
+          "links": [
+            1228
+          ]
+        }
+      ],
+      "title": "Load CLIP Vision (DINOv3)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.21.1",
+        "Node name for S&R": "CLIPVisionLoader",
+        "models": [
+          {
+            "name": "dino_v3_L_naf_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Pixal3D/resolve/main/clip_vision/dino_v3_L_naf_fp32.safetensors",
+            "directory": "clip_vision"
+          }
+        ]
+      },
+      "widgets_values": [
+        "dino_v3_L_naf_fp32.safetensors"
+      ],
+      "widgets_values_named": {
+        "clip_name": "dino_v3_L_naf_fp32.safetensors"
+      },
+      "color": "#f66744",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 4,
+      "type": "VoxelToMesh",
+      "pos": [
+        340,
+        345.91666666666663
+      ],
+      "size": [
+        320,
+        90
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "voxel",
+          "type": "VOXEL",
+          "link": 635
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MESH",
+          "type": "MESH",
+          "links": [
+            1096
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.0",
+        "Node name for S&R": "VoxelToMesh"
+      },
+      "widgets_values": [
+        "basic",
+        0.6
+      ],
+      "widgets_values_named": {
+        "algorithm": "basic",
+        "threshold": 0.6
+      },
+      "color": "#25494f",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 247,
+      "type": "MeshToFile3D",
+      "pos": [
+        340,
+        495.83333333333326
+      ],
+      "size": [
+        320,
+        40
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "link": 1096
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model_3d",
+          "type": "FILE_3D_GLB",
+          "links": [
+            1097
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "MeshToFile3D"
+      },
+      "color": "#25494f",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 241,
+      "type": "RemeshMesh",
+      "pos": [
+        1420,
+        354
+      ],
+      "size": [
+        328.373046875,
+        348
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "link": 1070
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "links": [
+            1071
+          ]
+        }
+      ],
+      "title": "Rebuild the mesh cleanly",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "RemeshMesh"
+      },
+      "widgets_values": [
+        512,
+        "udf",
+        false,
+        false,
+        false,
+        1,
+        0,
+        false,
+        20,
+        0.01,
+        20000000
+      ],
+      "widgets_values_named": {
+        "resolution": 512,
+        "sign_mode": "udf",
+        "sign_mode.qef": false,
+        "sign_mode.drop_inverted_components": false,
+        "sign_mode.drop_enclosed_components": false,
+        "band": 1,
+        "project_back": 0,
+        "fix_poles": false,
+        "smooth_iters": 20,
+        "drop_small_components": 0.01,
+        "precluster_max_verts": 20000000
+      },
+      "color": "#4f4025",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 186,
+      "type": "DecimateMesh",
+      "pos": [
+        1420,
+        752
+      ],
+      "size": [
+        320,
+        132
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "link": 1071
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "links": [
+            1060
+          ]
+        }
+      ],
+      "title": "Reduce to 200k triangles",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "DecimateMesh"
+      },
+      "widgets_values": [
+        200000,
+        "midpoint"
+      ],
+      "widgets_values_named": {
+        "target_face_count": 200000,
+        "placement_mode": "midpoint"
+      },
+      "color": "#4f4025",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 117,
+      "type": "VAELoader",
+      "pos": [
+        -1000,
+        498
+      ],
+      "size": [
+        460,
+        70
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            1253,
+            1265,
+            1266
+          ]
+        }
+      ],
+      "title": "Load VAE (shape)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "trellis_2_shape_vae_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Pixal3D/resolve/main/vae/trellis_2_shape_vae_bf16.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "trellis_2_shape_vae_bf16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "trellis_2_shape_vae_bf16.safetensors"
+      },
+      "color": "#f66744",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 40,
+      "type": "UNETLoader",
+      "pos": [
+        -1000,
+        200
+      ],
+      "size": [
+        460,
+        90
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1297,
+            1298,
+            1299
+          ]
+        }
+      ],
+      "title": "Load Diffusion Model (Trellis 2)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "UNETLoader",
+        "models": [
+          {
+            "name": "trellis_2_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/TRELLIS.2/resolve/main/diffusion_models/trellis_2_int8_convrot.safetensors",
+            "directory": "diffusion_models"
+          }
+        ]
+      },
+      "widgets_values": [
+        "3D\\trellis_2_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "3D\\trellis_2_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      },
+      "color": "#f66744",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 324,
+      "type": "PixaromaLoadImageMini",
+      "pos": [
+        -500,
+        200
+      ],
+      "size": [
+        440,
+        430
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            1304,
+            1305
+          ]
+        },
+        {
+          "name": "image_info",
+          "type": "PIX_IMAGE_INFO",
+          "links": null
+        }
+      ],
+      "title": "1. Load your image",
+      "properties": {
+        "cnr_id": "ComfyUI-Pixaroma",
+        "ver": "56e32d1676cab6700c54e4bdd37925f10867b970",
+        "Node name for S&R": "PixaromaLoadImageMini"
+      },
+      "widgets_values": [
+        "scifiweapon.jpeg",
+        "image",
+        ""
+      ],
+      "widgets_values_named": {
+        "image": "scifiweapon.jpeg",
+        "upload": "image",
+        "pixaroma_load_image_mini_ui": ""
+      },
+      "color": "#14436c",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 331,
+      "type": "PixaromaNote",
+      "pos": [
+        -1620,
+        218
+      ],
+      "size": [
+        575.1514892578125,
+        764
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "ComfyUI-Pixaroma",
+        "ver": "56e32d1676cab6700c54e4bdd37925f10867b970",
+        "Node name for S&R": "PixaromaNote"
+      },
+      "widgets_values": [
+        "{\"version\": 1, \"content\": \"<h1>MODELS AND NODES USED IN THIS WORKFLOW</h1><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"model-v1\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Load Diffusion Model</h2><p>\\n\\n</p><p><span class=\\\"pix-note-btnblock\\\"><a class=\\\"pix-note-dl\\\" style=\\\"background-color: #f66744\\\" href=\\\"https://huggingface.co/Comfy-Org/TRELLIS.2/resolve/main/diffusion_models/trellis_2_int8_convrot.safetensors\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">Download trellis_2_int8_convrot.safetensors<span class=\\\"pix-note-btnsize\\\">~4.9 GB</span></a></span>&nbsp;</p><div class=\\\"pix-note-folderhint\\\" style=\\\"color: #f66744\\\">Place in: ComfyUI/models/diffusion_models/3D</div><p>\\n\\n</p><p>Create the <code>3D</code> folder if it does not exist.</p><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"CLIP\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Load CLIP Vision</h2><p>\\n\\n</p><p><span class=\\\"pix-note-btnblock\\\"><a class=\\\"pix-note-dl\\\" style=\\\"background-color: #f66744\\\" href=\\\"https://huggingface.co/Comfy-Org/Pixal3D/resolve/main/clip_vision/dino_v3_L_naf_fp32.safetensors\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">Download dino_v3_L_naf_fp32.safetensors<span class=\\\"pix-note-btnsize\\\">~1.1 GB</span></a></span>&nbsp;</p><div class=\\\"pix-note-folderhint\\\" style=\\\"color: #f66744\\\">Place in: ComfyUI/models/clip_vision</div><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"VAE\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Load VAE (two files)</h2><p>\\n\\n</p><p><span class=\\\"pix-note-btnblock\\\"><a class=\\\"pix-note-dl\\\" style=\\\"background-color: #f66744\\\" href=\\\"https://huggingface.co/Comfy-Org/Pixal3D/resolve/main/vae/trellis_2_shape_vae_bf16.safetensors\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">Download trellis_2_shape_vae_bf16.safetensors<span class=\\\"pix-note-btnsize\\\">~1.0 GB</span></a></span>&nbsp;</p><p><span class=\\\"pix-note-btnblock\\\"><a class=\\\"pix-note-dl\\\" style=\\\"background-color: #f66744\\\" href=\\\"https://huggingface.co/Comfy-Org/Pixal3D/resolve/main/vae/trellis_2_texture_vae_bf16.safetensors\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">Download trellis_2_texture_vae_bf16.safetensors<span class=\\\"pix-note-btnsize\\\">~0.9 GB</span></a></span>&nbsp;</p><div class=\\\"pix-note-folderhint\\\" style=\\\"color: #f66744\\\">Place in: ComfyUI/models/vae</div><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"ai-brain\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Remove Background Pixaroma</h2><p>\\n\\n</p><p><span class=\\\"pix-note-btnblock\\\"><a class=\\\"pix-note-dl\\\" style=\\\"background-color: #f66744\\\" href=\\\"https://huggingface.co/Comfy-Org/BiRefNet/resolve/main/background_removal/birefnet.safetensors\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">Download birefnet.safetensors<span class=\\\"pix-note-btnsize\\\">~424 MB</span></a></span>&nbsp;</p><div class=\\\"pix-note-folderhint\\\" style=\\\"color: #f66744\\\">Place in: ComfyUI/models/background_removal</div><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><p><span data-ic=\\\"warning-v1\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;After placing the files, restart ComfyUI or refresh model lists using the <b>R</b> shortcut.</p><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"nodes-installed\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Nodes Installed from Manager</h2><p>\\n\\n</p><ul>\\n  <li>Pixaroma</li>\\n</ul><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"pixaroma\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Resources</h2><p>\\n\\n</p><p>\\n  <a class=\\\"pix-note-discord\\\" href=\\\"https://discord.com/invite/gggpkVgBf3\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">Join Discord</a>&nbsp;\\n\\n  <a class=\\\"pix-note-yt\\\" href=\\\"https://www.youtube.com/@pixaroma\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">Pixaroma YouTube Channel</a>&nbsp;\\n</p>\", \"buttonColor\": \"#f66744\", \"lineColor\": \"#f66744\", \"width\": 580, \"height\": 764.0, \"backgroundColor\": \"#2a2a2a\"}",
+        ""
+      ],
+      "widgets_values_named": {
+        "note_json": "{\"version\":1,\"content\":\"<h1>MODELS AND NODES USED IN THIS WORKFLOW</h1><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"model-v1\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Load Diffusion Model</h2><p>\\n\\n</p><p><span class=\\\"pix-note-btnblock\\\"><a class=\\\"pix-note-dl\\\" style=\\\"background-color: #f66744\\\" href=\\\"https://huggingface.co/Comfy-Org/TRELLIS.2/resolve/main/diffusion_models/trellis_2_int8_convrot.safetensors\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">Download trellis_2_int8_convrot.safetensors<span class=\\\"pix-note-btnsize\\\">~4.9 GB</span></a></span>&nbsp;</p><div class=\\\"pix-note-folderhint\\\" style=\\\"color: #f66744\\\">Place in: ComfyUI/models/diffusion_models/3D</div><p>\\n\\n</p><p>Create the <code>3D</code> folder if it does not exist.</p><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"CLIP\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Load CLIP Vision</h2><p>\\n\\n</p><p><span class=\\\"pix-note-btnblock\\\"><a class=\\\"pix-note-dl\\\" style=\\\"background-color: #f66744\\\" href=\\\"https://huggingface.co/Comfy-Org/Pixal3D/resolve/main/clip_vision/dino_v3_L_naf_fp32.safetensors\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">Download dino_v3_L_naf_fp32.safetensors<span class=\\\"pix-note-btnsize\\\">~1.1 GB</span></a></span>&nbsp;</p><div class=\\\"pix-note-folderhint\\\" style=\\\"color: #f66744\\\">Place in: ComfyUI/models/clip_vision</div><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"VAE\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Load VAE (two files)</h2><p>\\n\\n</p><p><span class=\\\"pix-note-btnblock\\\"><a class=\\\"pix-note-dl\\\" style=\\\"background-color: #f66744\\\" href=\\\"https://huggingface.co/Comfy-Org/Pixal3D/resolve/main/vae/trellis_2_shape_vae_bf16.safetensors\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">Download trellis_2_shape_vae_bf16.safetensors<span class=\\\"pix-note-btnsize\\\">~1.0 GB</span></a></span>&nbsp;</p><p><span class=\\\"pix-note-btnblock\\\"><a class=\\\"pix-note-dl\\\" style=\\\"background-color: #f66744\\\" href=\\\"https://huggingface.co/Comfy-Org/Pixal3D/resolve/main/vae/trellis_2_texture_vae_bf16.safetensors\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">Download trellis_2_texture_vae_bf16.safetensors<span class=\\\"pix-note-btnsize\\\">~0.9 GB</span></a></span>&nbsp;</p><div class=\\\"pix-note-folderhint\\\" style=\\\"color: #f66744\\\">Place in: ComfyUI/models/vae</div><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"ai-brain\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Remove Background Pixaroma</h2><p>\\n\\n</p><p><span class=\\\"pix-note-btnblock\\\"><a class=\\\"pix-note-dl\\\" style=\\\"background-color: #f66744\\\" href=\\\"https://huggingface.co/Comfy-Org/BiRefNet/resolve/main/background_removal/birefnet.safetensors\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">Download birefnet.safetensors<span class=\\\"pix-note-btnsize\\\">~424 MB</span></a></span>&nbsp;</p><div class=\\\"pix-note-folderhint\\\" style=\\\"color: #f66744\\\">Place in: ComfyUI/models/background_removal</div><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><p><span data-ic=\\\"warning-v1\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;After placing the files, restart ComfyUI or refresh model lists using the <b>R</b> shortcut.</p><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"nodes-installed\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Nodes Installed from Manager</h2><p>\\n\\n</p><ul>\\n  <li>Pixaroma</li>\\n</ul><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"pixaroma\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Resources</h2><p>\\n\\n</p><p>\\n  <a class=\\\"pix-note-discord\\\" href=\\\"https://discord.com/invite/gggpkVgBf3\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">Join Discord</a>&nbsp;\\n\\n  <a class=\\\"pix-note-yt\\\" href=\\\"https://www.youtube.com/@pixaroma\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">Pixaroma YouTube Channel</a>&nbsp;\\n</p>\",\"buttonColor\":\"#f66744\",\"lineColor\":\"#f66744\",\"width\":580,\"height\":830,\"backgroundColor\":\"#2a2a2a\"}",
+        "note_dom": ""
+      },
+      "color": "#1d1d1d",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 333,
+      "type": "PixaromaLabel",
+      "pos": [
+        -20,
+        92
+      ],
+      "size": [
+        676,
+        37
+      ],
+      "flags": {
+        "no_title": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "ComfyUI-Pixaroma",
+        "ver": "56e32d1676cab6700c54e4bdd37925f10867b970",
+        "Node name for S&R": "PixaromaLabel"
+      },
+      "widgets_values": [
+        "{\"text\":\"The model builds in four passes: a rough blob, the real shape, a refine, then the colours\",\"fontSize\":17,\"fontFamily\":\"Arial\",\"fontColor\":\"#9a9a9a\",\"textAlign\":\"left\",\"backgroundColor\":\"#242424\",\"padding\":9,\"borderRadius\":4,\"opacity\":1,\"fontWeight\":\"normal\",\"lineHeight\":1.1}"
+      ],
+      "widgets_values_named": {
+        "label_json": "{\"text\":\"The model builds in four passes: a rough blob, the real shape, a refine, then the colours\",\"fontSize\":17,\"fontFamily\":\"Arial\",\"fontColor\":\"#9a9a9a\",\"textAlign\":\"left\",\"backgroundColor\":\"#242424\",\"padding\":9,\"borderRadius\":4,\"opacity\":1,\"fontWeight\":\"normal\",\"lineHeight\":1.1}"
+      },
+      "color": "rgba(0,0,0,0)",
+      "bgcolor": "rgba(0,0,0,0)"
+    },
+    {
+      "id": 327,
+      "type": "PixaromaSeed",
+      "pos": [
+        -20.000000000000007,
+        200
+      ],
+      "size": [
+        320,
+        86
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "seed",
+          "type": "INT",
+          "links": [
+            1309,
+            1310,
+            1311,
+            1312
+          ]
+        }
+      ],
+      "title": "2. Seed (drives all four samplers)",
+      "properties": {
+        "cnr_id": "ComfyUI-Pixaroma",
+        "ver": "56e32d1676cab6700c54e4bdd37925f10867b970",
+        "Node name for S&R": "PixaromaSeed",
+        "seedState": "{\"seed\":33,\"mode\":\"fixed\",\"compact\":true,\"digits\":16}"
+      },
+      "widgets_values": [
+        {
+          "seed": 33,
+          "mode": "fixed",
+          "compact": true,
+          "digits": 16
+        }
+      ],
+      "widgets_values_named": {
+        "seed_ui": {
+          "seed": 33,
+          "mode": "fixed",
+          "compact": true,
+          "digits": 16
+        }
+      },
+      "color": "#14436c",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 94,
+      "type": "Trellis2UpsampleStage",
+      "pos": [
+        700,
+        988
+      ],
+      "size": [
+        461.3298095703126,
+        118
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 564
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 565
+        },
+        {
+          "name": "shape_latent",
+          "type": "LATENT",
+          "link": 566
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 1265
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            567,
+            582
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            568,
+            583
+          ]
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            569
+          ]
+        }
+      ],
+      "title": "Upsample the shape to 1024 (raise for more detail, slower)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "Trellis2UpsampleStage"
+      },
+      "widgets_values": [
+        1024
+      ],
+      "widgets_values_named": {
+        "target_resolution": 1024
+      },
+      "color": "#4f2525",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 126,
+      "type": "RescaleCFG",
+      "pos": [
+        700,
+        520
+      ],
+      "size": [
+        320,
+        58
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1164
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            966,
+            1108
+          ]
+        }
+      ],
+      "title": "Pipeline default - leave alone",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "RescaleCFG"
+      },
+      "widgets_values": [
+        0.5
+      ],
+      "widgets_values_named": {
+        "multiplier": 0.5
+      },
+      "color": "#1d1d1d",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 279,
+      "type": "CFGOverride",
+      "pos": [
+        700,
+        340
+      ],
+      "size": [
+        320,
+        106
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1298
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1164
+          ]
+        }
+      ],
+      "title": "Pipeline default - leave alone",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "CFGOverride"
+      },
+      "widgets_values": [
+        1,
+        0.769,
+        1
+      ],
+      "widgets_values_named": {
+        "cfg": 1,
+        "start_percent": 0.769,
+        "end_percent": 1
+      },
+      "color": "#1d1d1d",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 12,
+      "type": "KSampler",
+      "pos": [
+        1060,
+        334.40000000000003
+      ],
+      "size": [
+        320,
+        266
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1297
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 585
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 586
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 587
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 1312
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            556
+          ]
+        }
+      ],
+      "title": "Stage 4 - the colours",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.0",
+        "Node name for S&R": "KSampler (1024)"
+      },
+      "widgets_values": [
+        43,
+        "fixed",
+        12,
+        1,
+        "euler",
+        "normal",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 43,
+        "control_after_generate": "fixed",
+        "steps": 12,
+        "cfg": 1,
+        "sampler_name": "euler",
+        "scheduler": "normal",
+        "denoise": 1
+      },
+      "color": "#254f27",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 93,
+      "type": "VaeDecodeTextureTrellis",
+      "pos": [
+        1060,
+        668.8000000000001
+      ],
+      "size": [
+        320,
+        66
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 556
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 632
+        },
+        {
+          "name": "shape_subdivides",
+          "type": "SHAPE_SUBDIVIDES",
+          "link": 558
+        }
+      ],
+      "outputs": [
+        {
+          "name": "voxel_colors",
+          "type": "VOXEL",
+          "links": [
+            1313
+          ]
+        }
+      ],
+      "title": "Decode the colours",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.21.1",
+        "Node name for S&R": "VaeDecodeTextureTrellis"
+      },
+      "color": "#254f27",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 91,
+      "type": "Trellis2ShapeStage",
+      "pos": [
+        700,
+        200
+      ],
+      "size": [
+        320,
+        66
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 1300
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 1302
+        },
+        {
+          "name": "voxel",
+          "type": "VOXEL",
+          "link": 636
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            539,
+            564
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            540,
+            565
+          ]
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            541
+          ]
+        }
+      ],
+      "title": "Shape stage",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "Trellis2ShapeStage"
+      },
+      "color": "#40254f",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 98,
+      "type": "Trellis2TextureStage",
+      "pos": [
+        1060,
+        200
+      ],
+      "size": [
+        320,
+        66
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 582
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 583
+        },
+        {
+          "name": "shape_latent",
+          "type": "LATENT",
+          "link": 584
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            585
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            586
+          ]
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            587
+          ]
+        }
+      ],
+      "title": "Texture stage",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "Trellis2TextureStage"
+      },
+      "color": "#254f27",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 202,
+      "type": "GetMeshInfo",
+      "pos": [
+        1420,
+        200
+      ],
+      "size": [
+        320,
+        104
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "link": 906
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "links": [
+            1070
+          ]
+        },
+        {
+          "name": "info",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Mesh info (polygon count)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "GetMeshInfo"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "color": "#4f4025",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 252,
+      "type": "PaintMesh",
+      "pos": [
+        1780,
+        200
+      ],
+      "size": [
+        320,
+        58
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "link": 1199
+        },
+        {
+          "name": "voxel_colors",
+          "type": "VOXEL",
+          "link": 1315
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "links": [
+            1174
+          ]
+        }
+      ],
+      "title": "Paint the mesh with the colours",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "PaintMesh"
+      },
+      "color": "#4f4025",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 282,
+      "type": "MeshToFile3D",
+      "pos": [
+        1780,
+        312.80000000000007
+      ],
+      "size": [
+        320,
+        30
+      ],
+      "flags": {},
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "link": 1174
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model_3d",
+          "type": "FILE_3D_GLB",
+          "links": [
+            1316
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "MeshToFile3D"
+      },
+      "color": "#4f4025",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 312,
+      "type": "ImageCropToMask",
+      "pos": [
+        -500,
+        694
+      ],
+      "size": [
+        440,
+        210
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1305
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "link": 1306
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            1307
+          ]
+        }
+      ],
+      "title": "Centre and crop to 1024 x 1024",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "ImageCropToMask"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1.1,
+        0,
+        "#000000",
+        "#000000"
+      ],
+      "widgets_values_named": {
+        "width": 1024,
+        "height": 1024,
+        "pad_factor": 1.1,
+        "grow_mask": 0,
+        "background": "#000000"
+      },
+      "color": "#66707d",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 299,
+      "type": "Trellis2Conditioning",
+      "pos": [
+        -20.000000000000007,
+        353.4166666666667
+      ],
+      "size": [
+        320,
+        49.5
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip_vision_model",
+          "type": "CLIP_VISION",
+          "link": 1228
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1308
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            1300,
+            1301
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            1302,
+            1303
+          ]
+        }
+      ],
+      "title": "Read the picture",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.0",
+        "Node name for S&R": "Trellis2Conditioning"
+      },
+      "color": "#66707d",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 87,
+      "type": "EmptyTrellis2LatentStructure",
+      "pos": [
+        -20.000000000000007,
+        470.33333333333337
+      ],
+      "size": [
+        320,
+        58
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            509
+          ]
+        }
+      ],
+      "title": "Empty 3D latent",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.21.1",
+        "Node name for S&R": "EmptyTrellis2LatentStructure"
+      },
+      "widgets_values": [
+        1
+      ],
+      "widgets_values_named": {
+        "batch_size": 1
+      },
+      "color": "#25494f",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 199,
+      "type": "CFGOverride",
+      "pos": [
+        -20.000000000000007,
+        595.75
+      ],
+      "size": [
+        320,
+        106
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1299
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            904
+          ]
+        }
+      ],
+      "title": "Pipeline default - leave alone",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "CFGOverride"
+      },
+      "widgets_values": [
+        1,
+        0.667,
+        1
+      ],
+      "widgets_values_named": {
+        "cfg": 1,
+        "start_percent": 0.667,
+        "end_percent": 1
+      },
+      "color": "#1d1d1d",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 125,
+      "type": "RescaleCFG",
+      "pos": [
+        -20.000000000000007,
+        769.1666666666667
+      ],
+      "size": [
+        320,
+        66
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 904
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            976
+          ]
+        }
+      ],
+      "title": "Pipeline default - leave alone",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "RescaleCFG"
+      },
+      "widgets_values": [
+        0.7
+      ],
+      "widgets_values_named": {
+        "multiplier": 0.7
+      },
+      "color": "#1d1d1d",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 108,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        -20.000000000000007,
+        902.5833333333335
+      ],
+      "size": [
+        320,
+        58
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 976
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            962
+          ]
+        }
+      ],
+      "title": "Pipeline default - leave alone",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "ModelSamplingSD3"
+      },
+      "widgets_values": [
+        5
+      ],
+      "widgets_values_named": {
+        "shift": 5
+      },
+      "color": "#1d1d1d",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 119,
+      "type": "VaeDecodeStructureTrellis2",
+      "pos": [
+        340,
+        200
+      ],
+      "size": [
+        320,
+        86
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 633
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 1253
+        }
+      ],
+      "outputs": [
+        {
+          "name": "voxel",
+          "type": "VOXEL",
+          "links": [
+            635,
+            636
+          ]
+        }
+      ],
+      "title": "Decode the blob",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.0",
+        "Node name for S&R": "VaeDecodeStructureTrellis2"
+      },
+      "widgets_values": [
+        "32"
+      ],
+      "widgets_values_named": {
+        "resolution": "32"
+      },
+      "color": "#25494f",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        -19.999999999999993,
+        1028.0000000000002
+      ],
+      "size": [
+        320,
+        262
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 962
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 1301
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 1303
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 509
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 1309
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            633
+          ]
+        }
+      ],
+      "title": "Stage 1 - rough voxel blob",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.0",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        56,
+        "fixed",
+        12,
+        7.5,
+        "euler",
+        "normal",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 56,
+        "control_after_generate": "fixed",
+        "steps": 12,
+        "cfg": 7.5,
+        "sampler_name": "euler",
+        "scheduler": "normal",
+        "denoise": 1
+      },
+      "color": "#25494f",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 18,
+      "type": "KSampler",
+      "pos": [
+        700,
+        652
+      ],
+      "size": [
+        320,
+        262
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 966
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 539
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 540
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 541
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 1310
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            566
+          ]
+        }
+      ],
+      "title": "Stage 2 - the real shape",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.0",
+        "Node name for S&R": "KSampler (512)"
+      },
+      "widgets_values": [
+        42,
+        "fixed",
+        20,
+        7.5,
+        "euler",
+        "normal",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 42,
+        "control_after_generate": "fixed",
+        "steps": 20,
+        "cfg": 7.5,
+        "sampler_name": "euler",
+        "scheduler": "normal",
+        "denoise": 1
+      },
+      "color": "#40254f",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 23,
+      "type": "KSampler",
+      "pos": [
+        700,
+        1180
+      ],
+      "size": [
+        320,
+        286
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1108
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 567
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 568
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 569
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 1311
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            551,
+            584
+          ]
+        }
+      ],
+      "title": "Stage 3 - refine the shape",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.0",
+        "Node name for S&R": "KSampler (1024)"
+      },
+      "widgets_values": [
+        42,
+        "fixed",
+        12,
+        7.5,
+        "euler",
+        "simple",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 42,
+        "control_after_generate": "fixed",
+        "steps": 12,
+        "cfg": 7.5,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "denoise": 1
+      },
+      "color": "#4f2525",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 328,
+      "type": "PixaromaFreeVram",
+      "pos": [
+        1060,
+        803.2
+      ],
+      "size": [
+        320,
+        100
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "value",
+          "shape": 7,
+          "type": "*",
+          "link": 1313
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            1315
+          ]
+        }
+      ],
+      "title": "Free the VRAM - the rest is mesh work",
+      "properties": {
+        "cnr_id": "ComfyUI-Pixaroma",
+        "ver": "56e32d1676cab6700c54e4bdd37925f10867b970",
+        "Node name for S&R": "PixaromaFreeVram"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "color": "#4f4025",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 238,
+      "type": "MeshSmoothNormals",
+      "pos": [
+        1420,
+        934
+      ],
+      "size": [
+        320,
+        61.5
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "link": 1060
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "links": [
+            1199
+          ]
+        }
+      ],
+      "title": "Smooth the normals",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "MeshSmoothNormals"
+      },
+      "widgets_values": [
+        180
+      ],
+      "widgets_values_named": {
+        "crease_angle": 180
+      },
+      "color": "#4f4025",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 92,
+      "type": "VaeDecodeShapeTrellis",
+      "pos": [
+        700,
+        1540
+      ],
+      "size": [
+        320,
+        46
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 551
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 1266
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "links": [
+            906
+          ]
+        },
+        {
+          "name": "shape_subdivides",
+          "type": "SHAPE_SUBDIVIDES",
+          "links": [
+            558
+          ]
+        }
+      ],
+      "title": "Decode the mesh",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.0",
+        "Node name for S&R": "VaeDecodeShapeTrellis"
+      },
+      "color": "#4f2525",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 326,
+      "type": "PixaromaPreview",
+      "pos": [
+        -500,
+        968
+      ],
+      "size": [
+        440,
+        529.3112460049717
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1307
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            1308
+          ]
+        }
+      ],
+      "title": "What the 3D model actually sees",
+      "properties": {
+        "cnr_id": "ComfyUI-Pixaroma",
+        "ver": "56e32d1676cab6700c54e4bdd37925f10867b970",
+        "Node name for S&R": "PixaromaPreview",
+        "pixaromaFrames": [
+          {
+            "filename": "pixaroma_preview_adc670fe4af7432fb098bc1d0e33a885.png",
+            "subfolder": "",
+            "type": "temp"
+          }
+        ],
+        "pixaromaSelected": 0,
+        "pixaromaExpanded": false
+      },
+      "widgets_values": [
+        "img",
+        "preview"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "img",
+        "save_mode": "preview"
+      },
+      "color": "#66707d",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 246,
+      "type": "Preview3DAdvanced",
+      "pos": [
+        340,
+        595.7499999999999
+      ],
+      "size": [
+        316,
+        694.2500000000003
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_3d",
+          "type": "FILE_3D_GLB,FILE_3D_GLTF,FILE_3D_FBX,FILE_3D_OBJ,FILE_3D_STL,FILE_3D_USDZ,FILE_3D",
+          "link": 1097
+        },
+        {
+          "name": "model_3d_info",
+          "shape": 7,
+          "type": "LOAD3D_MODEL_INFO",
+          "link": null
+        },
+        {
+          "name": "camera_info",
+          "shape": 7,
+          "type": "LOAD3D_CAMERA",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model_3d",
+          "type": "FILE_3D",
+          "links": null
+        },
+        {
+          "name": "model_3d_info",
+          "type": "LOAD3D_MODEL_INFO",
+          "links": null
+        },
+        {
+          "name": "camera_info",
+          "type": "LOAD3D_CAMERA",
+          "links": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "title": "Stage 1 result - the rough blob",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "Preview3DAdvanced",
+        "Camera Config": {
+          "cameraType": "perspective",
+          "fov": 35,
+          "state": {
+            "position": {
+              "x": -5.180635706113414,
+              "y": 11.594017213523609,
+              "z": 8.624931484263472
+            },
+            "target": {
+              "x": 0,
+              "y": 0.46875,
+              "z": 0
+            },
+            "zoom": 1,
+            "cameraType": "perspective",
+            "quaternion": {
+              "x": -0.3909921792139416,
+              "y": -0.24418722253921718,
+              "z": -0.1084004124385893,
+              "w": 0.8807650462667439
+            },
+            "fov": 35,
+            "aspect": 1,
+            "near": 0.01,
+            "far": 10000,
+            "frustum": {
+              "left": -5,
+              "right": 5,
+              "top": 5,
+              "bottom": -5
+            }
+          }
+        },
+        "Last Time Model File": "preview3d_advanced_0904835e02af403393d804673e8ff999.glb [temp]",
+        "Scene Config": {
+          "showGrid": true,
+          "backgroundColor": "#282828",
+          "backgroundImage": "",
+          "backgroundRenderMode": "tiled",
+          "models": [
+            {
+              "position": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "quaternion": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "scale": {
+                "x": 1,
+                "y": 1,
+                "z": 1
+              }
+            }
+          ]
+        },
+        "Light Config": {
+          "intensity": 2.4000000000000004,
+          "hdri": {
+            "enabled": false,
+            "hdriPath": "",
+            "showAsBackground": false,
+            "intensity": 1
+          }
+        },
+        "Model Config": {
+          "upDirection": "original",
+          "materialMode": "original",
+          "showSkeleton": false,
+          "gizmo": {
+            "enabled": false,
+            "mode": "translate",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "scale": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        }
+      },
+      "widgets_values": [
+        "",
+        1024,
+        1024
+      ],
+      "widgets_values_named": {
+        "viewport_state": "",
+        "width": 1024,
+        "height": 1024
+      },
+      "color": "#25494f",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 335,
+      "type": "Save3DAdvanced",
+      "pos": [
+        1780,
+        397.60000000000014
+      ],
+      "size": [
+        490.2667248535158,
+        892.4000000000001
+      ],
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_3d",
+          "type": "FILE_3D_GLB,FILE_3D_GLTF,FILE_3D_FBX,FILE_3D_OBJ,FILE_3D_STL,FILE_3D_USDZ,FILE_3D",
+          "link": 1316
+        },
+        {
+          "name": "model_3d_info",
+          "shape": 7,
+          "type": "LOAD3D_MODEL_INFO",
+          "link": null
+        },
+        {
+          "name": "camera_info",
+          "shape": 7,
+          "type": "LOAD3D_CAMERA",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model_3d",
+          "type": "FILE_3D",
+          "links": null
+        },
+        {
+          "name": "model_3d_info",
+          "type": "LOAD3D_MODEL_INFO",
+          "links": null
+        },
+        {
+          "name": "camera_info",
+          "type": "LOAD3D_CAMERA",
+          "links": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "title": "RESULT - saved to output/3d",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.34.5",
+        "Node name for S&R": "Save3DAdvanced",
+        "Camera Config": {
+          "cameraType": "perspective",
+          "fov": 35,
+          "state": {
+            "position": {
+              "x": 0.2748900496796182,
+              "y": 0.3273711050677327,
+              "z": 1.618286670477695
+            },
+            "target": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "zoom": 1,
+            "cameraType": "perspective"
+          }
+        },
+        "Last Time Model File": "3d/trellis2_00011.glb",
+        "Light Config": {
+          "intensity": 3,
+          "hdri": {
+            "enabled": false,
+            "hdriPath": "",
+            "showAsBackground": false,
+            "intensity": 1
+          }
+        },
+        "Scene Config": {
+          "showGrid": true,
+          "backgroundColor": "#282828",
+          "backgroundImage": "",
+          "backgroundRenderMode": "tiled",
+          "models": [
+            {
+              "position": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "quaternion": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "scale": {
+                "x": 1,
+                "y": 1,
+                "z": 1
+              }
+            }
+          ]
+        },
+        "Model Config": {
+          "upDirection": "original",
+          "materialMode": "original",
+          "showSkeleton": false,
+          "gizmo": {
+            "enabled": false,
+            "mode": "translate",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "scale": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        }
+      },
+      "widgets_values": [
+        "3d/trellis2",
+        "",
+        1024,
+        1024
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "3d/trellis2",
+        "viewport_state": "",
+        "width": 1024,
+        "height": 1024
+      },
+      "color": "#4f4025",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 329,
+      "type": "PixaromaRunTimer",
+      "pos": [
+        2320.72939773291,
+        236.80000000000007
+      ],
+      "size": [
+        260.53344970703165,
+        92
+      ],
+      "flags": {
+        "no_title": true
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "ComfyUI-Pixaroma",
+        "ver": "56e32d1676cab6700c54e4bdd37925f10867b970",
+        "Node name for S&R": "PixaromaRunTimer",
+        "runTimerLastMs": 24956.5
+      },
+      "color": "#1d1d1d",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 339,
+      "type": "PixaromaNote",
+      "pos": [
+        -1620,
+        1072
+      ],
+      "size": [
+        720,
+        1536.0
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "What each node does",
+      "properties": {
+        "cnr_id": "comfyui-pixaroma",
+        "ver": "5906cb89f5d96fbbd2019a9b1a2d4f43002dccee",
+        "Node name for S&R": "PixaromaNote"
+      },
+      "widgets_values": [
+        "{\"version\": 1, \"content\": \"<h1>WHAT EACH NODE DOES</h1><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><p>The colour of a node tells you what kind of node it is. Nothing here needs changing except the blue ones.</p><p>\\n\\n</p><h2><span data-ic=\\\"model-v1\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Models to download</h2><p>Orange. Each one needs a file from the list in the other note.</p><ul><li><b>Load Diffusion Model (Trellis 2)</b> - The model that turns the picture into a 3D shape.</li><li><b>Load CLIP Vision (DINOv3)</b> - Reads the picture so the model understands what it is looking at.</li><li><b>Load VAE (shape)</b> - Turns the model&#x27;s output into geometry.</li><li><b>Load VAE (texture)</b> - Turns the model&#x27;s output into colours.</li><li><b>Remove Background Pixaroma (cut out)</b> - Cuts the subject away from its background.</li></ul><p>\\n\\n</p><h2><span data-ic=\\\"plus\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;The numbers you set</h2><p>Blue, and numbered. These are the only nodes you have to touch.</p><ul><li><b>1. Load your image</b> - Your starting picture. One clear object works best.</li><li><b>2. Seed (drives all four samplers)</b> - Same seed, same result. Change it for a different attempt.</li></ul><p>\\n\\n</p><h2><span data-ic=\\\"box\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Getting the picture ready</h2><p>Grey. Runs by itself, no numbers to type.</p><ul><li><b>Centre and crop to 1024 x 1024</b> - Puts the subject in the middle at the size the model expects.</li><li><b>What the 3D model actually sees</b> - Preview of the cut-out picture. Check it here before a long run.</li><li><b>Read the picture</b> - Hands the picture to the model as the thing to build.</li></ul><p>\\n\\n</p><h2><span data-ic=\\\"chip\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Stage 1</h2><p>Teal. A rough blob, so you can see it is working.</p><ul><li><b>Empty 3D latent</b> - The empty space the shape gets built into.</li><li><b>Stage 1 - rough voxel blob</b> - First pass. Blocks out roughly where the object is.</li><li><b>Decode the blob</b> - Turns that first pass into something viewable.</li><li><b>Voxel to Mesh</b> - Converts the blocks into a mesh.</li><li><b>Create 3D File (from Mesh)</b> - Writes the mesh out so a viewer can show it.</li><li><b>Stage 1 result - the rough blob</b> - What the first pass produced. Lumpy is correct here.</li></ul><p>\\n\\n</p><h2><span data-ic=\\\"chip\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Stage 2</h2><p>Purple. The real shape appears.</p><ul><li><b>Shape stage</b> - Sets up the pass that finds the real shape.</li><li><b>Stage 2 - the real shape</b> - Second pass. The actual form appears.</li></ul><p>\\n\\n</p><h2><span data-ic=\\\"chip\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Stage 3</h2><p>Red. The shape is refined and upscaled.</p><ul><li><b>Upsample the shape to 1024 (raise for more detail, slower)</b> - The biggest speed setting. Lower it if a run takes too long.</li><li><b>Stage 3 - refine the shape</b> - Third pass. Cleans up and adds detail.</li><li><b>Decode the mesh</b> - Turns the refined result into a mesh.</li></ul><p>\\n\\n</p><h2><span data-ic=\\\"chip\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Stage 4</h2><p>Green. The colours are worked out.</p><ul><li><b>Texture stage</b> - Sets up the pass that works out the colours.</li><li><b>Stage 4 - the colours</b> - Fourth pass. Colour per point on the surface.</li><li><b>Decode the colours</b> - Turns that pass into usable colour data.</li></ul><p>\\n\\n</p><h2><span data-ic=\\\"checkmark\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;After the stages</h2><p>Amber. Mesh tidy-up, texture baking and saving. All on the processor.</p><ul><li><b>Free the VRAM - the rest is mesh work</b> - Hands the graphics memory back. Everything after this runs on the processor.</li><li><b>Mesh info (polygon count)</b> - Reports how many points and faces the mesh has.</li><li><b>Rebuild the mesh cleanly</b> - Rebuilds the surface as an even grid of triangles. The model's own mesh is messy in places, and most 3D programs want a tidy one.</li><li><b>Reduce to 200k triangles</b> - Cuts the triangle count down to something usable.</li><li><b>Smooth the normals</b> - Smooths the shading so the surface does not look faceted.</li><li><b>Paint the mesh with the colours</b> - Puts the colours onto the mesh points.</li><li><b>Create 3D File (from Mesh)</b> - Writes the mesh out so a viewer can show it.</li><li><b>RESULT - saved to output/3d</b> - The finished model, written to output/3d as a .glb.</li></ul><p>\\n\\n</p><h2><span data-ic=\\\"warning-v1\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Left alone on purpose</h2><p>No colour means you never need to change it.</p><ul><li><b>Pipeline default - leave alone</b> - Part of how the model runs. Nothing to change.</li></ul><p>\\n\\n</p>\", \"buttonColor\": \"#f66744\", \"lineColor\": \"#f66744\", \"width\": 720.0, \"height\": 1536.0, \"backgroundColor\": \"#2a2a2a\"}",
+        ""
+      ],
+      "widgets_values_named": {
+        "note_json": "{\"version\": 1, \"content\": \"<h1>WHAT EACH NODE DOES</h1><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><p>The colour of a node tells you what kind of node it is. Nothing here needs changing except the blue ones.</p><p>\\n\\n</p><h2><span data-ic=\\\"model-v1\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Models to download</h2><p>Orange. Each one needs a file from the list in the other note.</p><ul><li><b>Load Diffusion Model (Trellis 2)</b> - The model that turns the picture into a 3D shape.</li><li><b>Load CLIP Vision (DINOv3)</b> - Reads the picture so the model understands what it is looking at.</li><li><b>Load VAE (shape)</b> - Turns the model&#x27;s output into geometry.</li><li><b>Load VAE (texture)</b> - Turns the model&#x27;s output into colours.</li><li><b>Remove Background Pixaroma (cut out)</b> - Cuts the subject away from its background.</li></ul><p>\\n\\n</p><h2><span data-ic=\\\"plus\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;The numbers you set</h2><p>Blue, and numbered. These are the only nodes you have to touch.</p><ul><li><b>1. Load your image</b> - Your starting picture. One clear object works best.</li><li><b>2. Seed (drives all four samplers)</b> - Same seed, same result. Change it for a different attempt.</li></ul><p>\\n\\n</p><h2><span data-ic=\\\"box\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Getting the picture ready</h2><p>Grey. Runs by itself, no numbers to type.</p><ul><li><b>Centre and crop to 1024 x 1024</b> - Puts the subject in the middle at the size the model expects.</li><li><b>What the 3D model actually sees</b> - Preview of the cut-out picture. Check it here before a long run.</li><li><b>Read the picture</b> - Hands the picture to the model as the thing to build.</li></ul><p>\\n\\n</p><h2><span data-ic=\\\"chip\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Stage 1</h2><p>Teal. A rough blob, so you can see it is working.</p><ul><li><b>Empty 3D latent</b> - The empty space the shape gets built into.</li><li><b>Stage 1 - rough voxel blob</b> - First pass. Blocks out roughly where the object is.</li><li><b>Decode the blob</b> - Turns that first pass into something viewable.</li><li><b>Voxel to Mesh</b> - Converts the blocks into a mesh.</li><li><b>Create 3D File (from Mesh)</b> - Writes the mesh out so a viewer can show it.</li><li><b>Stage 1 result - the rough blob</b> - What the first pass produced. Lumpy is correct here.</li></ul><p>\\n\\n</p><h2><span data-ic=\\\"chip\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Stage 2</h2><p>Purple. The real shape appears.</p><ul><li><b>Shape stage</b> - Sets up the pass that finds the real shape.</li><li><b>Stage 2 - the real shape</b> - Second pass. The actual form appears.</li></ul><p>\\n\\n</p><h2><span data-ic=\\\"chip\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Stage 3</h2><p>Red. The shape is refined and upscaled.</p><ul><li><b>Upsample the shape to 1024 (raise for more detail, slower)</b> - The biggest speed setting. Lower it if a run takes too long.</li><li><b>Stage 3 - refine the shape</b> - Third pass. Cleans up and adds detail.</li><li><b>Decode the mesh</b> - Turns the refined result into a mesh.</li></ul><p>\\n\\n</p><h2><span data-ic=\\\"chip\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Stage 4</h2><p>Green. The colours are worked out.</p><ul><li><b>Texture stage</b> - Sets up the pass that works out the colours.</li><li><b>Stage 4 - the colours</b> - Fourth pass. Colour per point on the surface.</li><li><b>Decode the colours</b> - Turns that pass into usable colour data.</li></ul><p>\\n\\n</p><h2><span data-ic=\\\"checkmark\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;After the stages</h2><p>Amber. Mesh tidy-up, texture baking and saving. All on the processor.</p><ul><li><b>Free the VRAM - the rest is mesh work</b> - Hands the graphics memory back. Everything after this runs on the processor.</li><li><b>Mesh info (polygon count)</b> - Reports how many points and faces the mesh has.</li><li><b>Rebuild the mesh cleanly</b> - </li><li><b>Reduce to 200k triangles</b> - Cuts the triangle count down to something usable.</li><li><b>Smooth the normals</b> - Smooths the shading so the surface does not look faceted.</li><li><b>Paint the mesh with the colours</b> - Puts the colours onto the mesh points.</li><li><b>Create 3D File (from Mesh)</b> - Writes the mesh out so a viewer can show it.</li><li><b>RESULT - saved to output/3d</b> - The finished model, written to output/3d as a .glb.</li></ul><p>\\n\\n</p><h2><span data-ic=\\\"warning-v1\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Left alone on purpose</h2><p>No colour means you never need to change it.</p><ul><li><b>Pipeline default - leave alone</b> - Part of how the model runs. Nothing to change.</li></ul><p>\\n\\n</p>\", \"buttonColor\": \"#f66744\", \"lineColor\": \"#f66744\", \"width\": 720.0, \"height\": 1448.0, \"backgroundColor\": \"#2a2a2a\"}",
+        "note_dom": ""
+      },
+      "color": "#1d1d1d",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 332,
+      "type": "PixaromaLabel",
+      "pos": [
+        -1620,
+        96
+      ],
+      "size": [
+        600,
+        51
+      ],
+      "flags": {
+        "no_title": true
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "ComfyUI-Pixaroma",
+        "ver": "56e32d1676cab6700c54e4bdd37925f10867b970",
+        "Node name for S&R": "PixaromaLabel"
+      },
+      "widgets_values": [
+        "{\"text\":\"Trellis 2 - Image to 3D Model - Low VRAM\",\"fontSize\":31,\"fontFamily\":\"Arial\",\"fontColor\":\"#ffffff\",\"textAlign\":\"left\",\"backgroundColor\":\"#f66744\",\"padding\":10,\"borderRadius\":0,\"opacity\":1,\"fontWeight\":\"normal\",\"lineHeight\":1}"
+      ],
+      "widgets_values_named": {
+        "label_json": "{\"text\":\"Trellis 2 - Image to 3D Model - Low VRAM\",\"fontSize\":31,\"fontFamily\":\"Arial\",\"fontColor\":\"#ffffff\",\"textAlign\":\"left\",\"backgroundColor\":\"#f66744\",\"padding\":10,\"borderRadius\":0,\"opacity\":1,\"fontWeight\":\"normal\",\"lineHeight\":1}"
+      },
+      "color": "rgba(0,0,0,0)",
+      "bgcolor": "rgba(0,0,0,0)"
+    },
+    {
+      "id": 325,
+      "type": "PixaromaRemoveBackground",
+      "pos": [
+        -1000,
+        776
+      ],
+      "size": [
+        460,
+        98
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1304
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            1306
+          ]
+        },
+        {
+          "name": "inverted_mask",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "Remove Background Pixaroma (cut out)",
+      "properties": {
+        "cnr_id": "ComfyUI-Pixaroma",
+        "ver": "56e32d1676cab6700c54e4bdd37925f10867b970",
+        "Node name for S&R": "PixaromaRemoveBackground"
+      },
+      "widgets_values": [
+        "birefnet.safetensors"
+      ],
+      "widgets_values_named": {
+        "model": "birefnet.safetensors"
+      },
+      "color": "#f66744",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 338,
+      "type": "PixaromaNote",
+      "pos": [
+        2320.72939773291,
+        393.1666666666667
+      ],
+      "size": [
+        756.5353523460908,
+        1192.0
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Settings for your card",
+      "properties": {
+        "cnr_id": "ComfyUI-Pixaroma",
+        "ver": "56e32d1676cab6700c54e4bdd37925f10867b970",
+        "Node name for S&R": "PixaromaNote"
+      },
+      "widgets_values": [
+        "{\"version\": 1, \"content\": \"<h1>SETTINGS FOR YOUR GRAPHICS CARD</h1><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"chip\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;The three numbers that decide the speed</h2><p>\\n\\n</p><p>Everything else in the workflow can stay as it is. Each row says which node to look for.</p><p>\\n\\n</p><table class=\\\"pix-note-grid\\\" style=\\\"--pix-note-grid-border: #f66744; --pix-note-grid-header-bg: #1a1a1a\\\"><thead><tr><th>Setting</th><th>Node on the canvas</th><th>Low VRAM</th><th>HQ</th><th>24 GB</th></tr></thead><tbody><tr><td>Upsample resolution</td><td>Upsample the shape</td><td>1024</td><td>1536</td><td>1536</td></tr><tr><td>Remesh resolution</td><td>Rebuild the mesh cleanly</td><td>512</td><td>768</td><td>1024</td></tr><tr><td>Triangles</td><td>Reduce to N triangles</td><td>200,000</td><td>700,000</td><td>1,500,000</td></tr></tbody></table><p>\\n\\n</p><p>The <b>upsample resolution</b> is by far the biggest one, and how much it costs depends on your card. On the <b>6 GB RTX 2060</b>, dropping it from 1536 to 1024 took one test run from <span style=\\\"color: #f66744\\\">20 minutes to 2 minutes</span>. On a <b>24 GB RTX 4090</b> the same change is much smaller: <span style=\\\"color: #f66744\\\">39 seconds against 25</span>. Either way there is no difference you can see at normal viewing size, so lower it first if you are short of memory or time, and leave it high if you have the card for it.</p><p>\\n\\n</p><p><b>Do not go above 1536.</b> The node allows 2048 and it is not worth it: on a <b>24 GB RTX 4090</b> the mesh comes back with about <span style=\\\"color: #f66744\\\">five times as many holes</span> in it and the run takes half again as long. Set the 3D view background to a bright colour and you can see them straight through the surface.</p><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"checkmark\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Measured run times</h2><p>\\n\\n</p><p>Same picture, same seed, one object.</p><p>\\n\\n</p><table class=\\\"pix-note-grid\\\" style=\\\"--pix-note-grid-border: #f66744; --pix-note-grid-header-bg: #1a1a1a\\\"><thead><tr><th>Workflow</th><th>6 GB RTX 2060</th><th>24 GB RTX 4090</th></tr></thead><tbody><tr><td>Trellis 2 - Low VRAM</td><td>2 min 10 s</td><td>25 s</td></tr><tr><td>Trellis 2 - HQ + PBR Textures</td><td>40 min</td><td>2 min 28 s</td></tr><tr><td>Pixal3D - Low VRAM</td><td>6 min 20 s</td><td>37 s</td></tr><tr><td>Pixal3D - HQ + PBR Textures</td><td><span style=\\\"color: #f66744\\\">over 2 hours</span></td><td>3 min</td></tr></tbody></table><p>Both columns were measured with Kitchen Attention enabled, using the same picture and seed. The first run after starting ComfyUI is a few seconds slower than the table while the models load into the card; run it again for the real speed.</p><p>\\n\\n</p><p>Pixal3D is slower on a small card because it also loads MoGe to work out the camera angle. Trellis 2 does not need it.</p><p>\\n\\n</p><p><span data-ic=\\\"warning-v1\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;<b>Pixal3D on HQ is not practical on a 6 GB card.</b> It made a much denser mesh than Trellis 2 (15.7 million faces against 11.8 million), and rebuilding a mesh that size runs on a single processor core, so the run was stopped after more than two hours. On a 6 GB card use <span style=\\\"color: #f66744\\\">Pixal3D Low VRAM</span>, or use Trellis 2 for HQ. On a 24 GB card the same run finishes in 3 minutes.</p><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"ai-brain\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Why Free VRAM is in the workflow</h2><p>\\n\\n</p><p>Memory was sampled every 3 seconds through a full HQ run on the 6 GB test machine. It peaked at <span style=\\\"color: #f66744\\\">5.47 GB of 6.00 GB</span>, so only 0.53 GB was spare at the worst moment.</p><p>\\n\\n</p><p>The <b>Free VRAM</b> node sits after the last step that needs the graphics card. In the trace it drops memory in use from 5.26 GB straight down to <span style=\\\"color: #f66744\\\">1.25 GB</span>, right before the mesh and baking work, which is all done on the processor. On a big card it costs nothing.</p><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"warning-v1\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;If you run out of memory</h2><p>\\n\\n</p><ul>\\n  <li>Use the <b>Low VRAM</b> workflow rather than the HQ one.</li>\\n  <li>Lower <b>Upsample resolution</b> first.</li>\\n  <li>Close other programs using the graphics card, browsers included.</li>\\n</ul><p>\\n\\n</p>\", \"buttonColor\": \"#f66744\", \"lineColor\": \"#f66744\", \"width\": 730, \"height\": 1192.0, \"backgroundColor\": \"#2a2a2a\"}",
+        ""
+      ],
+      "widgets_values_named": {
+        "note_json": "{\"version\": 1, \"content\": \"<h1>SETTINGS FOR YOUR GRAPHICS CARD</h1><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"chip\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;The four numbers that decide the speed</h2><p>\\n\\n</p><p>Everything else in the workflow can stay as it is. Each row says which node to look for.</p><p>\\n\\n</p><table class=\\\"pix-note-grid\\\" style=\\\"--pix-note-grid-border: #f66744; --pix-note-grid-header-bg: #1a1a1a\\\"><thead><tr><th>Setting</th><th>Node on the canvas</th><th>Low VRAM</th><th>HQ</th><th>24 GB</th></tr></thead><tbody><tr><td>Upsample resolution</td><td>Upsample the shape</td><td>1024</td><td>1536</td><td>2048</td></tr><tr><td>Remesh resolution</td><td>Rebuild the mesh cleanly</td><td>512</td><td>768</td><td>1024</td></tr><tr><td>Triangles</td><td>Reduce to N triangles</td><td>200,000</td><td>700,000</td><td>1,500,000</td></tr><tr><td>Texture size</td><td>5. Texture size</td><td>2048</td><td>4096</td><td>4096</td></tr></tbody></table><p>\\n\\n</p><p>The <b>upsample resolution</b> is by far the biggest one, and how much it costs depends on your card. On the <b>6 GB RTX 2060</b>, dropping it from 1536 to 1024 took one test run from <span style=\\\"color: #f66744\\\">20 minutes to 2 minutes</span>. On a <b>24 GB RTX 4090</b> the same change is much smaller: <span style=\\\"color: #f66744\\\">39 seconds against 25</span>. Either way there is no difference you can see at normal viewing size, so lower it first if you are short of memory or time, and leave it high if you have the card for it.</p><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"checkmark\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Measured run times</h2><p>\\n\\n</p><p>Same picture, same seed, one object.</p><p>\\n\\n</p><table class=\\\"pix-note-grid\\\" style=\\\"--pix-note-grid-border: #f66744; --pix-note-grid-header-bg: #1a1a1a\\\"><thead><tr><th>Workflow</th><th>6 GB RTX 2060</th><th>24 GB RTX 4090</th></tr></thead><tbody><tr><td>Trellis 2 - Low VRAM</td><td>2 min 10 s</td><td>25 s</td></tr><tr><td>Trellis 2 - HQ + PBR Textures</td><td>40 min</td><td>2 min 28 s</td></tr><tr><td>Pixal3D - Low VRAM</td><td>6 min 20 s</td><td>37 s</td></tr><tr><td>Pixal3D - HQ + PBR Textures</td><td><span style=\\\"color: #f66744\\\">over 2 hours</span></td><td>3 min</td></tr></tbody></table><p>Both columns were measured with Kitchen Attention enabled, using the same picture and seed. The first run after starting ComfyUI is a few seconds slower than the table while the models load into the card; run it again for the real speed.</p><p>\\n\\n</p><p>Pixal3D is slower on a small card because it also loads MoGe to work out the camera angle. Trellis 2 does not need it.</p><p>\\n\\n</p><p><span data-ic=\\\"warning-v1\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;<b>Pixal3D on HQ is not practical on a 6 GB card.</b> It made a much denser mesh than Trellis 2 (15.7 million faces against 11.8 million), and rebuilding a mesh that size runs on a single processor core, so the run was stopped after more than two hours. On a 6 GB card use <span style=\\\"color: #f66744\\\">Pixal3D Low VRAM</span>, or use Trellis 2 for HQ. On a 24 GB card the same run finishes in 3 minutes.</p><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"ai-brain\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;Why Free VRAM is in the workflow</h2><p>\\n\\n</p><p>Memory was sampled every 3 seconds through a full HQ run on the 6 GB test machine. It peaked at <span style=\\\"color: #f66744\\\">5.47 GB of 6.00 GB</span>, so only 0.53 GB was spare at the worst moment.</p><p>\\n\\n</p><p>The <b>Free VRAM</b> node sits after the last step that needs the graphics card. In the trace it drops memory in use from 5.26 GB straight down to <span style=\\\"color: #f66744\\\">1.25 GB</span>, right before the mesh and baking work, which is all done on the processor. On a big card it costs nothing.</p><p>\\n\\n</p><hr class=\\\"pix-note-hr-solid\\\" style=\\\"color: #b8b8b8\\\"><p>\\n\\n</p><h2><span data-ic=\\\"warning-v1\\\" class=\\\"pix-note-ic\\\" contenteditable=\\\"false\\\" style=\\\"color: #f66744\\\"></span>&nbsp;If you run out of memory</h2><p>\\n\\n</p><ul>\\n  <li>Use the <b>Low VRAM</b> workflow rather than the HQ one.</li>\\n  <li>Lower <b>Upsample resolution</b> first, then <b>Texture size</b>.</li>\\n  <li>Close other programs using the graphics card, browsers included.</li>\\n</ul><p>\\n\\n</p>\", \"buttonColor\": \"#f66744\", \"lineColor\": \"#f66744\", \"width\": 730, \"height\": 1010, \"backgroundColor\": \"#2a2a2a\"}",
+        "note_dom": ""
+      },
+      "color": "#1d1d1d",
+      "bgcolor": "#2a2a2a"
+    }
+  ],
+  "links": [
+    [
+      509,
+      87,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      539,
+      91,
+      0,
+      18,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      540,
+      91,
+      1,
+      18,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      541,
+      91,
+      2,
+      18,
+      3,
+      "LATENT"
+    ],
+    [
+      551,
+      23,
+      0,
+      92,
+      0,
+      "LATENT"
+    ],
+    [
+      556,
+      12,
+      0,
+      93,
+      0,
+      "LATENT"
+    ],
+    [
+      558,
+      92,
+      1,
+      93,
+      2,
+      "SHAPE_SUBDIVIDES"
+    ],
+    [
+      564,
+      91,
+      0,
+      94,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      565,
+      91,
+      1,
+      94,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      566,
+      18,
+      0,
+      94,
+      2,
+      "LATENT"
+    ],
+    [
+      567,
+      94,
+      0,
+      23,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      568,
+      94,
+      1,
+      23,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      569,
+      94,
+      2,
+      23,
+      3,
+      "LATENT"
+    ],
+    [
+      582,
+      94,
+      0,
+      98,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      583,
+      94,
+      1,
+      98,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      584,
+      23,
+      0,
+      98,
+      2,
+      "LATENT"
+    ],
+    [
+      585,
+      98,
+      0,
+      12,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      586,
+      98,
+      1,
+      12,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      587,
+      98,
+      2,
+      12,
+      3,
+      "LATENT"
+    ],
+    [
+      632,
+      118,
+      0,
+      93,
+      1,
+      "VAE"
+    ],
+    [
+      633,
+      3,
+      0,
+      119,
+      0,
+      "LATENT"
+    ],
+    [
+      635,
+      119,
+      0,
+      4,
+      0,
+      "VOXEL"
+    ],
+    [
+      636,
+      119,
+      0,
+      91,
+      2,
+      "VOXEL"
+    ],
+    [
+      904,
+      199,
+      0,
+      125,
+      0,
+      "MODEL"
+    ],
+    [
+      906,
+      92,
+      0,
+      202,
+      0,
+      "MESH"
+    ],
+    [
+      962,
+      108,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      966,
+      126,
+      0,
+      18,
+      0,
+      "MODEL"
+    ],
+    [
+      976,
+      125,
+      0,
+      108,
+      0,
+      "MODEL"
+    ],
+    [
+      1060,
+      186,
+      0,
+      238,
+      0,
+      "MESH"
+    ],
+    [
+      1070,
+      202,
+      0,
+      241,
+      0,
+      "MESH"
+    ],
+    [
+      1071,
+      241,
+      0,
+      186,
+      0,
+      "MESH"
+    ],
+    [
+      1096,
+      4,
+      0,
+      247,
+      0,
+      "MESH"
+    ],
+    [
+      1097,
+      247,
+      0,
+      246,
+      0,
+      "FILE_3D_GLB"
+    ],
+    [
+      1108,
+      126,
+      0,
+      23,
+      0,
+      "MODEL"
+    ],
+    [
+      1164,
+      279,
+      0,
+      126,
+      0,
+      "MODEL"
+    ],
+    [
+      1174,
+      252,
+      0,
+      282,
+      0,
+      "MESH"
+    ],
+    [
+      1199,
+      238,
+      0,
+      252,
+      0,
+      "MESH"
+    ],
+    [
+      1228,
+      15,
+      0,
+      299,
+      0,
+      "CLIP_VISION"
+    ],
+    [
+      1253,
+      117,
+      0,
+      119,
+      1,
+      "VAE"
+    ],
+    [
+      1265,
+      117,
+      0,
+      94,
+      3,
+      "VAE"
+    ],
+    [
+      1266,
+      117,
+      0,
+      92,
+      1,
+      "VAE"
+    ],
+    [
+      1297,
+      40,
+      0,
+      12,
+      0,
+      "MODEL"
+    ],
+    [
+      1298,
+      40,
+      0,
+      279,
+      0,
+      "MODEL"
+    ],
+    [
+      1299,
+      40,
+      0,
+      199,
+      0,
+      "MODEL"
+    ],
+    [
+      1300,
+      299,
+      0,
+      91,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      1301,
+      299,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      1302,
+      299,
+      1,
+      91,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      1303,
+      299,
+      1,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      1304,
+      324,
+      0,
+      325,
+      0,
+      "IMAGE"
+    ],
+    [
+      1305,
+      324,
+      0,
+      312,
+      0,
+      "IMAGE"
+    ],
+    [
+      1306,
+      325,
+      1,
+      312,
+      1,
+      "MASK"
+    ],
+    [
+      1307,
+      312,
+      0,
+      326,
+      0,
+      "IMAGE"
+    ],
+    [
+      1308,
+      326,
+      0,
+      299,
+      1,
+      "IMAGE"
+    ],
+    [
+      1309,
+      327,
+      0,
+      3,
+      4,
+      "INT"
+    ],
+    [
+      1310,
+      327,
+      0,
+      18,
+      4,
+      "INT"
+    ],
+    [
+      1311,
+      327,
+      0,
+      23,
+      4,
+      "INT"
+    ],
+    [
+      1312,
+      327,
+      0,
+      12,
+      4,
+      "INT"
+    ],
+    [
+      1313,
+      93,
+      0,
+      328,
+      0,
+      "VOXEL"
+    ],
+    [
+      1315,
+      328,
+      0,
+      252,
+      1,
+      "VOXEL"
+    ],
+    [
+      1316,
+      282,
+      0,
+      335,
+      0,
+      "FILE_3D_GLB"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.46650738020973354,
+      "offset": [
+        1851.3459532850927,
+        200.2870381083224
+      ]
+    },
+    "frontendVersion": "1.49.6",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
